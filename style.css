@@ -56,6 +56,8 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 #bubble {
@@ -68,4 +70,11 @@ h2 {
   justify-content: center;
   font-weight: 900;
   color: white;
+}
+#bubble:hover {
+  background-color: rgb(69, 164, 201);
+}
+#btmcontent h1 {
+  font-size: 80px;
+  color: red;
 }

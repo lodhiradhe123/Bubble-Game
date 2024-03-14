@@ -1,8 +1,15 @@
-let timer = 60;
+let timer = 6;
+var hitrn = 0;
+let score = 0;
 
 function gethit() {
-  var rn = Math.floor(Math.random() * 10);
-  document.querySelector("#Hit").textContent = rn;
+  hitrn = Math.floor(Math.random() * 10);
+  document.querySelector("#Hit").textContent = hitrn;
+}
+
+function mainScore() {
+  score += 10;
+  document.querySelector("#Score").innerHTML = score;
 }
 function makebubble() {
   let clutter = "";
@@ -20,10 +27,24 @@ function runtimer() {
       timer--;
       document.querySelector("#Timer").innerHTML = timer;
     } else {
+      document.querySelector("#btmcontent").innerHTML = `<h1>Game End</h1>`;
       clearInterval(timerfn);
     }
   }, 1000);
 }
+
+document
+  .querySelector("#btmcontent")
+  .addEventListener("click", function (dets) {
+    let clickedVal = dets.target.textContent;
+    if (+clickedVal === hitrn) {
+      mainScore();
+      gethit();
+      makebubble();
+
+      console.log("radhe");
+    }
+  });
 runtimer();
 makebubble();
 gethit();
